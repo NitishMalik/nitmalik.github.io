@@ -7,6 +7,7 @@ const Card = ({ name, email, id }) => {
       <div>
         <h2>{name}</h2>
         <h2>{email}</h2>
+        <h2>Contact</h2>
       </div>
     </div>
   );

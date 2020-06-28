@@ -1,15 +1,18 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import "./App.css";
 import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
 import CardList from "../components/CardList";
 import { connect } from "react-redux";
 import { searchChanged, getRobos } from "../redux/actions";
+import Header from "../components/Header";
+// import AsyncComponent from "../components/AsyncComponent";
 
+const MessageLazy = React.lazy(() => import("../components/Message"));
 class App extends Component {
-  // state = {
-  //   robos: [],
-  // };
+  state = {
+    //robos: [],
+  };
 
   componentDidMount() {
     this.props.getRobos();
@@ -40,11 +43,14 @@ class App extends Component {
       <h1>Loading...</h1>
     ) : (
       <div className="tc">
-        <h1 className="f1">ROBO FRIENDS</h1>
+        <Header />
         <SearchBox onSearchInputChange={onSearchChanged} />
         <Scroll>
           <CardList robos={filteredRobos} />
         </Scroll>
+        <Suspense fallback={<div> Loading...</div>}>
+          <MessageLazy />
+        </Suspense>
       </div>
     );
   }
