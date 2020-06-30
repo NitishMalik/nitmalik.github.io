@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 
+interface IAsyncCompState {
+  component?: React.ComponentClass | React.SFC | null;
+}
 export default function AsyncComponent(importComponent) {
-  class AsyncComponent extends Component {
+  class AsyncComponent extends Component<{}, IAsyncCompState> {
     constructor(props) {
       super(props);
       this.state = {

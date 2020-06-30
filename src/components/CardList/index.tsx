@@ -1,8 +1,7 @@
 import React from "react";
-import Card from "./Card";
+import Card from "../Card";
 
 const CardList = ({ robos }) => {
-  console.log("Render Card List");
   return (
     <div>
       {robos.map((robo) => {
