@@ -4,6 +4,7 @@ import {
   GET_ROBOS_SUCCESS,
   GET_ROBOS_REJECT,
 } from "./constants";
+import { apiCall } from "../api/api";
 
 export const searchChanged = (input) => {
   return {
@@ -14,8 +15,7 @@ export const searchChanged = (input) => {
 
 export const getRobos = () => (dispatch) => {
   dispatch({ type: GET_ROBOS_PENDING });
-  fetch("https://jsonplaceholder.typicode.com/users")
-    .then((resp) => resp.json())
+  apiCall("https://jsonplaceholder.typicode.com/users")
     .then((data) => {
       dispatch({ type: GET_ROBOS_SUCCESS, payload: data });
     })

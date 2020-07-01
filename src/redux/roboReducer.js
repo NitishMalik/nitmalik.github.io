@@ -4,7 +4,7 @@ import {
   GET_ROBOS_REJECT,
 } from "./constants";
 
-const initialState = {
+export const initialState = {
   robos: [],
   isPending: false,
   error: "",
