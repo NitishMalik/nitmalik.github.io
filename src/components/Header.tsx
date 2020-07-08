@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import MainPage from "./MainPage";
 import CounterButton from "./CounterButton";
 
 class Header extends Component {

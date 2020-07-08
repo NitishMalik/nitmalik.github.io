@@ -3,12 +3,27 @@ import "./App.css";
 import { connect } from "react-redux";
 import { searchChanged, getRobos } from "../redux/actions";
 import MainPage from "../components/MainPage";
+import { IRobo } from "redux/interfaces";
+
 // import AsyncComponent from "../components/AsyncComponent";
 
 // const MessageLazy = React.lazy(() => import("../components/Message"));
-interface IAppProps {
+interface IAppMapStateToProps {
+  searchField: string;
+  robots: IRobo[],
+  isPending: boolean,
+  error: string,
+}
+
+interface IAppMapDispatchToProps {
+  onSearchChanged: (event: React.SyntheticEvent) => void;
   getRobos: () => void;
 }
+
+interface IAppProps extends IAppMapStateToProps, IAppMapDispatchToProps {
+  className?: string;
+}
+
 class App extends Component<IAppProps, {}> {
   state = {
     //robos: [],

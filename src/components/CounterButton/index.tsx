@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 
-class CounterButton extends Component {
+interface ICounterButtonState {
+  count: number;
+}
+
+interface ICounterButtonProps {
+  color?: string;
+}
+
+class CounterButton extends Component<ICounterButtonProps, ICounterButtonState> {
   constructor(props) {
     super(props);
     this.state = {
